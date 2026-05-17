@@ -44,7 +44,7 @@ export async function GET() {
     const xml = await response.text();
     const feed = await parser.parseString(xml);
 
-    const articles: Article[] = feed.items.slice(0, 20).map((item) => ({
+    const articles: Article[] = feed.items.slice(0, 30).map((item) => ({
       title: cleanTitle(item.title ?? ""),
       link: item.link ?? "",
       source: extractSource(item.title ?? "", (item as any).sourceTag),
